@@ -1,0 +1,15 @@
+<!--
+  @File Name          : Util_Attributes.intf
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 4/11/2020, 1:36:02 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    4/11/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<aura:interface description="Interface template">
+  <aura:attribute name="serverReturn" type="Object[]" default="{}" description="Use this Attribute To hold the server infomration"/>
+  <aura:attribute name="actionName" type="String" default="No Action" />
+</aura:interface>

@@ -4,11 +4,10 @@
   @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
   @Group              : 
   @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
-  @Last Modified On   : 4/11/2020, 1:17:34 PM
+  @Last Modified On   : 4/11/2020, 1:39:41 PM
   @Modification Log   : 
   Ver       Date            Author      		    Modification
   1.0    4/11/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
 -->
-<aura:component>
-
+<aura:component implements="c:Util_Attributes">
 </aura:component>
