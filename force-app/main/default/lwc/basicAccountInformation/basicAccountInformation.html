@@ -1,0 +1,64 @@
+<!--
+  @File Name          : basicAccountInformation.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 5/4/2020, 1:00:59 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    5/3/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+    <!-- LAYOUT FOR THE COMPONENT -->
+    <lightning-card variant="Narrow" title="Search for Accounts" icon-name="standard:account">
+        <lightning-button slot="actions" variant="brand" label="Search" icon-name="utility:search"
+            class="slds-m-left_x-small" onclick={searchAccounts}></lightning-button>
+        <lightning-button-menu alternative-text="Show menu" variant="border-filled" slot="actions">
+            <lightning-menu-item value="MenuItemOne" label="New Account"></lightning-menu-item>
+            <lightning-menu-item value="MenuItemTwo" label="New Contact"></lightning-menu-item>
+        </lightning-button-menu>
+
+        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+            <lightning-layout>
+                <lightning-layout-item padding="around-small" size="8">
+                    <lightning-input type="text" data-my-id="account-name"
+                        placeholder="Account Name (ex: Procodingskills.com)" onchange={accountNameChange}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="4">
+                    <lightning-input type="tel" name="AccountPhone" data-my-id="account-phone"
+                        placeholder="Phone Number Ex: 9986973450" onchange={accountPhoneChange}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <p slot="footer">
+            <template if:true={accountName}> Account Name :
+                <span style="color: green;">{accountName}</span> ,
+            </template>
+            Phone : <span style="color: green;">{accountPhone}</span>
+            <br /> This is using event change Bining Expression Controller actions are : accountNameChange ,
+            accountPhoneChange
+        </p>
+    </lightning-card>
+
+    <!-- Account Search Results -->
+    <lightning-card variant="Narrow" title="Account Search Results" icon-name="standard:account">
+        <span style="color: red;">{accountserror}</span>
+        <div style="height: 300px;" if:false={accounts}>
+            <center><span style="color: red;">No Search results found</span></center>
+        </div>
+        <div style="height: 300px;" if:true={accounts}>
+            <lightning-datatable key-field="id" data={accounts} show-row-number-column columns={columns}
+                onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+<br/>
+    <!-- Displaying Child Componnet based on the Row Actions Details-->
+    <lightning-card variant="Narrow" title="Account Details" icon-name="standard:account">
+        <c-basic-account-card account-details={record} edit-record="false" onrecordupdate={searchAccounts}></c-basic-account-card>
+    </lightning-card>
+
+</template>

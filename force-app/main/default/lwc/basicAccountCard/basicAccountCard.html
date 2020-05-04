@@ -1,0 +1,60 @@
+<!--
+  @File Name          : basicAccountCard.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 5/4/2020, 12:36:37 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    5/3/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+    <!-- Record Display -->
+    <div class="slds-box" if:false={editRecord}>
+        <lightning-record-view-form record-id={accountDetails.Id} object-api-name="Account">
+            <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-output-field field-name="Name">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-output-field field-name="Phone">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-output-field field-name="ParentId">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-output-field field-name="Active__c">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-output-field field-name="Type">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-output-field field-name="CreatedById">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-output-field field-name="OwnerId">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </lightning-record-view-form>
+        <center>
+            <lightning-button label="edit" onclick={editRecordAction}>Edit</lightning-button>
+            <lightning-button label="PUB SUB EVENT" onclick={pubsubRegister}>PUB SUB EVENTS</lightning-button>
+        </center>
+    </div>
+    <template if:true={editRecord}>
+        <lightning-record-form record-id={accountDetails.Id} object-api-name="Account" layout-type="Full" columns="2"
+            onsuccess={handleSuccess} mode="edit">
+        </lightning-record-form>
+    </template>
+
+</template>

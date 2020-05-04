@@ -2,7 +2,23 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/basicAccountInformation": [
+                "basicAccountInformation/basicAccountInformation.js"
+            ],
+            "c/basicAccountCard": [
+                "basicAccountCard/basicAccountCard.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/basicVideoPlayer": [
+                "basicVideoPlayer/basicVideoPlayer.js"
+            ],
+            "c/basicContactList": [
+                "basicContactList/basicContactList.js"
+            ]
+        }
     },
     "include": [
         "**/*",
